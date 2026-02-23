@@ -31,12 +31,12 @@ El proyecto sigue una estructura modular:
 - `src/services`: Configuración de clientes de API.
 - `src/styles`: Estilos globales y específicos.
 
-### Challenges & Solutions 🛠️
+### Desafíos y Soluciones 🛠️
 
-During the development of **Step 5 (Job Application)**, I encountered a discrepancy between the provided email documentation and the actual API behavior:
+Durante el desarrollo del **Paso 5 (Postulación)**, encontré una discrepancia entre la documentación recibida por mail y el comportamiento real de la API:
 
-* **API Inconsistency:** The API required an `applicationId` field that was not specified in the initial instructions.
-* **Data Type Validation:** The backend enforced strict string typing for ID fields.
-* **Resolution:** By performing deep inspection of the API's `fieldErrors` response, I successfully re-mapped the payload to include the required fields, ensuring a successful submission (`{"ok": true}`).
+* **Inconsistencia de la API:** La API requería un campo `applicationId` que no estaba especificado en las instrucciones iniciales.
+* **Validación de Tipos de Datos:** El backend exigía estrictamente que los campos de ID fueran enviados como Strings.
+* **Resolución:** Mediante una inspección detallada de la respuesta `fieldErrors` de la API, logré re-mapear el payload para incluir los campos requeridos, asegurando una postulación exitosa (`{"ok": true}`).
 
-This experience highlighted my ability to perform technical troubleshooting and reverse-engineer API requirements under real-world conditions.
+Esta experiencia resalta mi capacidad para realizar troubleshooting técnico e ingeniería inversa sobre requerimientos de API en condiciones reales.
