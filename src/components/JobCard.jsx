@@ -12,12 +12,13 @@ const JobCard = ({ job, candidate }) => {
             return;
         }
 
-        setSubmitting(true);
         try {
+            console.log('DATOS DEL CANDIDATO:', candidate);
+
             const payload = {
-                applicationId: candidate.uuid,      // La API lo pide como applicationId
-                jobId: String(job.id),              // Aseguramos que sea String
-                candidateId: Number(candidate.id || candidate.candidateId), // Aseguramos que sea Number
+                uuid: String(candidate.uuid || ''),
+                jobId: String(job.id),
+                candidateId: Number(candidate.candidateId || candidate.id),
                 repoUrl: repoUrl.trim()
             };
 
