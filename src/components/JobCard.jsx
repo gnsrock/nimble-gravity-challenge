@@ -11,14 +11,22 @@ const JobCard = ({ job, candidate }) => {
             alert('Please enter a repository URL');
             return;
         }
-
+        setSubmitting(true);
         try {
             console.log('DATOS DEL CANDIDATO:', candidate);
 
             const payload = {
-                applicationId: String(candidate.uuid || ''),
+                // El servidor pide 'applicationId', pero el valor que 
+                // identifica tu proceso es el string largo (uuid).
+                applicationId: String(candidate.uuid),
+
+                // El ID del trabajo siempre como String.
                 jobId: String(job.id),
-                candidateId: Number(candidate.candidateId || candidate.id),
+
+                // El ID del candidato como Número.
+                candidateId: Number(candidate.candidateId),
+
+                // La URL sin espacios.
                 repoUrl: repoUrl.trim()
             };
 
