@@ -16,21 +16,13 @@ const JobCard = ({ job, candidate }) => {
             console.log('DATOS DEL CANDIDATO:', candidate);
 
             const payload = {
-                // El servidor pide 'applicationId', pero el valor que 
-                // identifica tu proceso es el string largo (uuid).
-                applicationId: String(candidate.uuid),
-
-                // El ID del trabajo siempre como String.
+                uuid: String(candidate.uuid),
                 jobId: String(job.id),
-
-                // El ID del candidato como Número.
-                candidateId: Number(candidate.candidateId),
-
-                // La URL sin espacios.
+                candidateId: String(candidate.candidateId),
                 repoUrl: repoUrl.trim()
             };
 
-            if (!payload.applicationId || !payload.candidateId) {
+            if (!payload.uuid || !payload.candidateId) {
                 console.error('Faltan datos críticos:', payload);
             }
 
