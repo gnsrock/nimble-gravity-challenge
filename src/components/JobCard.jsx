@@ -26,7 +26,9 @@ const JobCard = ({ job, candidate }) => {
             setRepoUrl('');
         } catch (err) {
             console.error(err);
-            alert('Failed to submit application: ' + (err.response?.data?.message || err.message));
+            console.log('Cuerpo del error:', err.response?.data);
+            const apiErrorMessage = err.response?.data?.error || err.response?.data?.message || err.message;
+            alert('Failed to submit application: ' + apiErrorMessage);
         } finally {
             setSubmitting(false);
         }

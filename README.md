@@ -1,16 +1,32 @@
-# React + Vite
+# Nimble Gravity - Junior Fullstack Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Professional job application portal built for the Nimble Gravity candidate challenge.
 
-Currently, two official plugins are available:
+## Tecnologías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Library for building the user interface.
+- **Vite**: Fast build tool and development server.
+- **Axios**: Promised-based HTTP client for API requests.
+- **Hooks**: Logic separation using custom hooks (`useChallenge`) for better scalability and cleaner components.
 
-## React Compiler
+## Instalación
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Sigue estos pasos para ejecutar el proyecto localmente:
 
-## Expanding the ESLint configuration
+1. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Ejecutar el servidor de desarrollo**:
+   ```bash
+   npm run dev
+   ```
+
+## Arquitectura
+
+El proyecto sigue una estructura modular:
+- `src/hooks`: Contiene la lógica de negocio y peticiones de datos.
+- `src/components`: Componentes de UI reutilizables.
+- `src/services`: Configuración de clientes de API.
+- `src/styles`: Estilos globales y específicos.

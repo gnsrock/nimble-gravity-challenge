@@ -22,7 +22,7 @@ function App() {
       <main>
         <h2>Available Jobs</h2>
         <div className="jobs-grid">
-          {jobs.map(job => (
+          {candidate && jobs.map(job => (
             <JobCard key={job.id} job={job} candidate={candidate} />
           ))}
         </div>
