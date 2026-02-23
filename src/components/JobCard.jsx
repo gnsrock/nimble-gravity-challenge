@@ -16,11 +16,15 @@ const JobCard = ({ job, candidate }) => {
             console.log('DATOS DEL CANDIDATO:', candidate);
 
             const payload = {
-                uuid: String(candidate.uuid || ''),
+                applicationId: String(candidate.uuid || ''),
                 jobId: String(job.id),
                 candidateId: Number(candidate.candidateId || candidate.id),
                 repoUrl: repoUrl.trim()
             };
+
+            if (!payload.applicationId || !payload.candidateId) {
+                console.error('Faltan datos críticos:', payload);
+            }
 
             console.log('Enviando este payload final:', payload);
 
