@@ -14,14 +14,14 @@ const JobCard = ({ job, candidate }) => {
 
         setSubmitting(true);
         try {
-            const payload = {
+            await api.post('/api/candidate/apply-to-job', {
                 uuid: candidate.uuid,
-                jobId: job.id,
+                jobId: String(job.id),
                 candidateId: candidate.candidateId,
-                repoUrl: repoUrl
-            };
-
-            await api.post('/api/candidate/apply-to-job', payload);
+                repoUrl: repoUrl.trim()
+            }, {
+                headers: { 'Content-Type': 'application/json' }
+            });
             alert('Application submitted successfully!');
             setRepoUrl('');
         } catch (err) {
