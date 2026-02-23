@@ -17,7 +17,7 @@ const JobCard = ({ job, candidate }) => {
             await api.post('/api/candidate/apply-to-job', {
                 uuid: candidate.uuid,
                 jobId: String(job.id),
-                candidateId: candidate.candidateId,
+                candidateId: Number(candidate.candidateId),
                 repoUrl: repoUrl.trim()
             }, {
                 headers: { 'Content-Type': 'application/json' }
