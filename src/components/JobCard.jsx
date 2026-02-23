@@ -11,10 +11,9 @@ const JobCard = ({ job, candidate }) => {
             alert('Please enter a repository URL');
             return;
         }
+
         setSubmitting(true);
         try {
-            console.log('DATOS DEL CANDIDATO:', candidate);
-
             const payload = {
                 applicationId: String(candidate.applicationId || ''),
                 uuid: String(candidate.uuid || ''),
@@ -23,22 +22,15 @@ const JobCard = ({ job, candidate }) => {
                 repoUrl: repoUrl.trim()
             };
 
-            if (!payload.applicationId || !payload.uuid || !payload.candidateId) {
-                console.error('Faltan datos críticos:', payload);
-            }
-
-            console.log('Enviando este payload final:', payload);
-
             await api.post('/api/candidate/apply-to-job', payload, {
                 headers: { 'Content-Type': 'application/json' }
             });
+
             alert('Application submitted successfully!');
             setRepoUrl('');
         } catch (err) {
-            console.error(err);
-            console.log('Cuerpo del error:', err.response?.data);
-            const apiErrorMessage = err.response?.data?.error || err.response?.data?.message || err.message;
-            alert('Failed to submit application: ' + apiErrorMessage);
+            console.error('Submit error:', err);
+            alert('Failed to submit application. Please try again later.');
         } finally {
             setSubmitting(false);
         }
